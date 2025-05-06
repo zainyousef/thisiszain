@@ -1,0 +1,105 @@
+html, body, #root {
+  margin: 0;
+  height: 100%; /* Ensure html, body, and #root take up the full viewport height */
+  font-family: Arial, sans-serif;
+  display: flex;
+  flex-direction: column;
+}
+
+.header {
+  background-color: #000000;
+  color: white;
+  padding: 1rem;
+  text-align: center;
+  flex: 0 0 10%; /* Header takes up 10% of the height */
+}
+
+.main-content {
+  flex: 1 0 80%; /* Main content takes up 80% of the height */
+  background-color: #000000;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 2rem;
+}
+
+.zain {
+  position: relative; /* Ensure the logo is positioned relative */
+  z-index: 4; /* Higher than the matrix-text and woo elements */
+  padding: 0 0 0 22rem;
+  text-align: center;
+  flex: 1 0 50%; /* Zain section takes up remaining space */
+  max-width: 100%; /* Ensure the image doesn't exceed its container */
+  height: auto; /* Maintain aspect ratio */
+  animation: glow-animation 1s infinite alternate; /* Add the glow animation */
+  transition: transform 0.5s ease, filter 0.5s ease; /* Smooth transition for hover effects */
+}
+
+.zain:hover {
+  transform: scale(1.3); /* Enlarge the logo and add a slight rotation */
+  filter: brightness(1.2); /* Slightly brighten the image */
+}
+
+@keyframes glow-animation {
+  0% {
+    filter: brightness(1) drop-shadow(0 0 5px rgba(255, 0, 0, 0.8));
+  }
+  50% {
+    filter: brightness(1.5) drop-shadow(0 0 15px rgba(0, 255, 0, 0.8));
+  }
+  100% {
+    filter: brightness(2) drop-shadow(0 0 25px rgba(0, 0, 255, 0.8));
+  }
+}
+
+.footer {
+  background-color: #000000;
+  padding: 1rem;
+  text-align: right;
+  flex: 0 0 10%; /* Footer takes up 10% of the height */
+  font-size: 10px;
+  z-index: 0; 
+}
+
+.matrix-text {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  pointer-events: none; /* Allow clicks to pass through */
+  z-index: 2; /* Ensure it appears above the background but below the logo */
+}
+
+.website {
+  position: relative; /* Ensure it can be layered */
+  z-index: 3; /* Higher than the matrix-text */
+  display: block;
+  margin: 0 auto; /* Center the URL horizontally */
+  max-width: 200px; /* Adjust size as needed */
+  height: auto; /* Maintain aspect ratio */
+}
+
+.woo {
+  font-size: 2rem;
+  color: rgba(255, 255, 255, 0.784); /* Fully visible */
+  animation: fade-in-out 3s infinite ease-in-out;
+  margin: 0.5rem;
+}
+
+@keyframes fade-in-out {
+  0%, 100% {
+    opacity: 0; /* Fully transparent */
+    transform: translateY(10px); /* Slight downward movement */
+  }
+  50% {
+    opacity: 1; /* Fully visible */
+    transform: translateY(0); /* Reset position */
+  }
+}
