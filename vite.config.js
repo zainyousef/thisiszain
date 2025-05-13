@@ -6,4 +6,7 @@ import { ghPages } from 'vite-plugin-gh-pages';
 export default defineConfig({
   base: '/thisiszain/', // Replace 'thisiszain' with your repository name
   plugins: [react(), ghPages()],
+  build: {
+    outDir: 'dist', // Specify the output directory
+  },
 });
